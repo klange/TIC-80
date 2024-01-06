@@ -45,6 +45,10 @@ extern tic_script_config JanetSyntaxConfig;
 extern tic_script_config PythonSyntaxConfig;
 #endif
 
+#if defined(TIC_BUILD_WITH_KUROKO)
+extern tic_script_config KurokoSyntaxConfig;
+#endif
+
 tic_script_config* Languages[] = 
 {
 
@@ -90,6 +94,10 @@ tic_script_config* Languages[] =
 
     #if defined(TIC_BUILD_WITH_PYTHON)
     &PythonSyntaxConfig,
+    #endif
+
+    #if defined(TIC_BUILD_WITH_KUROKO)
+    &KurokoSyntaxConfig,
     #endif
 
     NULL

@@ -117,4 +117,8 @@ if(BUILD_STUB)
         MACRO_STUB(wasm)
     endif()
 
+    if(BUILD_WITH_KUROKO)
+        MACRO_STUB(kuroko)
+    endif()
+
 endif()

@@ -117,6 +117,7 @@ include(cmake/squirrel.cmake)
 include(cmake/pocketpy.cmake)
 include(cmake/quickjs.cmake)
 include(cmake/janet.cmake)
+include(cmake/kuroko.cmake)
 
 include(cmake/core.cmake)
 

@@ -245,6 +245,28 @@ tic_script_config_extra PythonSyntaxConfigExtra =
 
 #endif
 
+#if defined(TIC_BUILD_WITH_KUROKO)
+
+static const u8 KurokoDemoRom[] =
+  {
+#include "../build/assets/kurokodemo.tic.dat"
+  };
+
+static const u8 kurokomark[] =
+  {
+#include "../build/assets/kurokomark.tic.dat"
+  };
+
+tic_script_config_extra KurokoSyntaxConfigExtra =
+  {
+    .name               = "kuroko",
+    .demoRom            = KurokoDemoRom,
+    .demoRomSize        = sizeof KurokoDemoRom,
+    .markRom            = kurokomark,
+    .markRomSize        = sizeof kurokomark,
+  };
+
+#endif
 
 tic_script_config_extra* getConfigExtra(const tic_script_config* config)
 {
@@ -293,6 +315,9 @@ tic_script_config_extra* LanguagesExtra[] = {
 #endif
 #if defined(TIC_BUILD_WITH_PYTHON)
    &PythonSyntaxConfigExtra,
+#endif
+#if defined(TIC_BUILD_WITH_KUROKO)
+    &KurokoSyntaxConfigExtra,
 #endif
    NULL
 };

@@ -102,6 +102,11 @@ if(BUILD_DEMO_CARTS)
         list(APPEND DEMO_CARTS ${DEMO_CARTS_IN}/bunny/janetmark.janet)
     endif()
 
+    if(BUILD_WITH_KUROKO)
+        list(APPEND DEMO_CARTS ${DEMO_CARTS_IN}/kurokodemo.krk)
+        list(APPEND DEMO_CARTS ${DEMO_CARTS_IN}/bunny/kurokomark.krk)
+    endif()
+
     foreach(CART_FILE ${DEMO_CARTS})
 
         get_filename_component(CART_NAME ${CART_FILE} NAME_WE)

@@ -62,6 +62,10 @@ macro(MACRO_CORE SCRIPT DEFINE BUILD_DEPRECATED)
         list(APPEND TIC80CORE_SRC ${TIC80CORE_DIR}/api/wasm.c)
     endif()
 
+    if(BUILD_WITH_KUROKO)
+        list(APPEND TIC80CORE_SRC ${TIC80CORE_DIR}/api/kuroko.c)
+    endif()
+
     if(${BUILD_DEPRECATED})
         set(TIC80CORE_SRC ${TIC80CORE_SRC} ${TIC80CORE_DIR}/ext/gif.c)
     endif()
@@ -118,6 +122,10 @@ macro(MACRO_CORE SCRIPT DEFINE BUILD_DEPRECATED)
 
     if(BUILD_WITH_WASM)
         target_link_libraries(tic80core${SCRIPT} wasm)
+    endif()
+
+    if(BUILD_WITH_KUROKO)
+        target_link_libraries(tic80core${SCRIPT} kuroko)
     endif()
 
     if(${BUILD_DEPRECATED})
@@ -179,6 +187,10 @@ if(BUILD_STUB)
 
     if(BUILD_WITH_WASM)
         MACRO_CORE(wasm TIC_BUILD_WITH_WASM FALSE)
+    endif()
+
+    if(BUILD_WITH_KUROKO)
+        MACRO_CORE(kuroko TIC_BUILD_WITH_KUROKO FALSE)
     endif()
 
 endif()

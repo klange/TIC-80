@@ -86,3 +86,6 @@
 	path = vendor/msf_gif
 	url = https://github.com/notnullnotvoid/msf_gif.git
 	shallow = true
+[submodule "vendor/kuroko"]
+	path = vendor/kuroko
+	url = https://github.com/kuroko-lang/kuroko
